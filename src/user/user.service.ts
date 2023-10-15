@@ -56,8 +56,6 @@ export class UserService {
         user.roles = [];
       }
 
-      // Role IDs ile uygun rolleri veritabanından alın
-      // const roles = await this.roleRepository.findByIds(roleIds);
       const roles = await this.roleRepository.findBy({ id: In(roleIds) });
 
       // Eğer kullanıcı bu rolleri zaten eklememişse, rolleri kullanıcının rollerine ekleyin.
