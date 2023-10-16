@@ -31,7 +31,7 @@ import { JwtService } from '@nestjs/jwt';
       username: process.env.POSTGRES_USER,
       password: process.env.POSTGRES_PASSWORD,
       database: process.env.POSTGRES_DATABASE,
-      entities: [`${process.env.NODE_ENV === 'development' ? 'dist/' : ''}**/*.entity{.ts,.js}`],
+      entities: ["**/*.entity{.ts,.js}"],
       synchronize: true,
       ssl: {
         rejectUnauthorized: false,
