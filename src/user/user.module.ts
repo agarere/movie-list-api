@@ -7,6 +7,7 @@ import { Permission } from './permissions/permission.entity';
 import { Role } from './roles/role.entity';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { User } from './user.entity';
+import { CryptoService } from 'src/crypto/crypto.service';
 
 
 @Module({
@@ -15,7 +16,7 @@ import { User } from './user.entity';
     PermissionsModule,
     RoleModule
   ],
-  providers: [UserService],
+  providers: [UserService, CryptoService],
   controllers: [UserController],
   exports: [UserService]
 })

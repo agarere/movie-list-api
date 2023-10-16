@@ -10,6 +10,8 @@ import { ConfigModule } from '@nestjs/config';
 import { AuthService } from './auth/auth.service';
 import { AuthModule } from './auth/auth.module';
 import { JwtService } from '@nestjs/jwt';
+import { CryptoService } from './crypto/crypto.service';
+import { CryptoModule } from './crypto/crypto.module';
 
 // type: "postgres",
 // host: "localhost",
@@ -41,9 +43,11 @@ import { JwtService } from '@nestjs/jwt';
     
     AuthModule,
 
-    UserModule
+    UserModule,
+
+    CryptoModule
   ],
   controllers: [AppController, CatsController],
-  providers: [AppService, CatsService, AuthService, JwtService],
+  providers: [AppService, CatsService, AuthService, JwtService, CryptoService],
 })
 export class AppModule { }
