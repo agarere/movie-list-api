@@ -33,7 +33,7 @@ import { ConfigModule } from '@nestjs/config';
       ssl: {
         rejectUnauthorized: false,
       },
-      logging: true
+      logging: "all"
     }),
     TypeOrmModule.forFeature([Cat]),
     
