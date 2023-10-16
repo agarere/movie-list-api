@@ -7,6 +7,9 @@ import { CatsService } from './cats/cats.service';
 import { Cat } from './cats/cat.entity';
 import { UserModule } from './user/user.module';
 import { ConfigModule } from '@nestjs/config';
+import { AuthService } from './auth/auth.service';
+import { AuthModule } from './auth/auth.module';
+import { JwtService } from '@nestjs/jwt';
 
 // type: "postgres",
 // host: "localhost",
@@ -28,18 +31,19 @@ import { ConfigModule } from '@nestjs/config';
       username: process.env.POSTGRES_USER,
       password: process.env.POSTGRES_PASSWORD,
       database: process.env.POSTGRES_DATABASE,
-      entities: ["**/*.entity{.ts,.js}"],
+      entities: [`${process.env.NODE_ENV === 'development' ? 'dist/' : ''}**/*.entity{.ts,.js}`],
       synchronize: true,
       ssl: {
         rejectUnauthorized: false,
-      },
-      logging: "all"
+      }
     }),
     TypeOrmModule.forFeature([Cat]),
     
+    AuthModule,
+
     UserModule
   ],
   controllers: [AppController, CatsController],
-  providers: [AppService, CatsService],
+  providers: [AppService, CatsService, AuthService, JwtService],
 })
 export class AppModule { }
