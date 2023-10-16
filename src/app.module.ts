@@ -28,7 +28,7 @@ import { ConfigModule } from '@nestjs/config';
       username: process.env.POSTGRES_USER,
       password: process.env.POSTGRES_PASSWORD,
       database: process.env.POSTGRES_DATABASE,
-      entities: ["dist/**/*.entity{.ts,.js}"],
+      entities: ["**/*.entity{.ts,.js}"],
       synchronize: true,
       ssl: {
         rejectUnauthorized: false,
