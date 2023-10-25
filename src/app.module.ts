@@ -12,6 +12,7 @@ import { AuthModule } from './auth/auth.module';
 import { JwtService } from '@nestjs/jwt';
 import { CryptoService } from './crypto/crypto.service';
 import { CryptoModule } from './crypto/crypto.module';
+import { MoviesModule } from './movies/movies.module';
 
 // type: "postgres",
 // host: "localhost",
@@ -42,10 +43,9 @@ import { CryptoModule } from './crypto/crypto.module';
     TypeOrmModule.forFeature([Cat]),
     
     AuthModule,
-
     UserModule,
-
-    CryptoModule
+    CryptoModule,
+    MoviesModule
   ],
   controllers: [AppController, CatsController],
   providers: [AppService, CatsService, AuthService, JwtService, CryptoService],
