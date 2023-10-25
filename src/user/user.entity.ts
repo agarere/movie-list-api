@@ -1,5 +1,6 @@
 import { Entity, PrimaryGeneratedColumn, Column, ManyToMany, JoinTable } from 'typeorm';
 import { Role } from './roles/role.entity';
+import { Exclude } from 'class-transformer';
 
 @Entity()
 export class User {
@@ -19,6 +20,7 @@ export class User {
   lastname: string;
 
   @Column()
+  @Exclude()
   password: string;
 
   @ManyToMany(type => Role, { cascade: true })

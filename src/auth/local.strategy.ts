@@ -14,7 +14,7 @@ export class LocalStrategy extends PassportStrategy(Strategy) {
 
     const hashPassword = this.cryptoService.hashPassword(password)
 
-    const user = await this.authService.validateUser(username, hashPassword);
+    const user = await this.authService.validateUser(username, hashPassword); 
 
     if (!user) {
       throw new UnauthorizedException();

@@ -1,5 +1,5 @@
 // user.controller.ts
-import { Controller, Get, Post, Put, Delete, Param, Body, UseGuards } from '@nestjs/common';
+import { Controller, Get, Post, Put, Delete, Param, Body, UseGuards, UseInterceptors, ClassSerializerInterceptor } from '@nestjs/common';
 import { UserService } from './user.service';
 import { User } from './user.entity';
 import { AuthGuard } from '@nestjs/passport';
@@ -18,6 +18,7 @@ export class UserController {
     return this.userService.createUser(username, email, firstname, lastname, hashPassword);
   }
 
+  @UseInterceptors(ClassSerializerInterceptor)
   @Get()
   @UseGuards(AuthGuard('jwt'))
   findAllUsers(): Promise<User[]> {
