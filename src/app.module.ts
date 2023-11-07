@@ -47,7 +47,16 @@ import { MoviesModule } from './movies/movies.module';
     CryptoModule,
     MoviesModule
   ],
-  controllers: [AppController, CatsController],
-  providers: [AppService, CatsService, AuthService, JwtService, CryptoService],
+  controllers: [
+    AppController,
+    CatsController
+  ],
+  providers: [
+    AppService,
+    CatsService,
+    AuthService,
+    JwtService,
+    CryptoService
+  ],
 })
 export class AppModule { }

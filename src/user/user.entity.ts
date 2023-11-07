@@ -1,5 +1,5 @@
 import { Entity, PrimaryGeneratedColumn, Column, ManyToMany, JoinTable } from 'typeorm';
-import { Role } from './roles/role.entity';
+import { Role } from '../roles/role.entity';
 import { Exclude } from 'class-transformer';
 
 @Entity()

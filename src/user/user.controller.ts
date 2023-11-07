@@ -7,7 +7,10 @@ import { CryptoService } from 'src/crypto/crypto.service';
 
 @Controller('users')
 export class UserController {
-  constructor(private readonly userService: UserService, private cryptoService: CryptoService) {}
+  constructor(
+    private readonly userService: UserService,
+    private cryptoService: CryptoService
+  ) {}
 
   @Post()
   createUser(@Body() userData: { username: string, email: string, firstname: string, lastname: string, password: string }): Promise<User> {
