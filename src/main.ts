@@ -16,8 +16,6 @@ async function bootstrap() {
   const document = SwaggerModule.createDocument(app, config);
   SwaggerModule.setup('api', app, document);
 
-  console.log('Node', process.env.NODE_ENV);
-
   app.use((req, res, next) => {
     res.header('Access-Control-Allow-Origin', '*');
     res.header('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE');
@@ -29,7 +27,6 @@ async function bootstrap() {
     allowedHeaders: '*',
     origin: '*',
   });
-  console.log(app);
 
   await app.listen(3000);
 }
