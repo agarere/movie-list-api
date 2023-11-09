@@ -6,7 +6,9 @@ import { CryptoService } from 'src/crypto/crypto.service';
 
 @Injectable()
 export class LocalStrategy extends PassportStrategy(Strategy) {
-  constructor(private authService: AuthService, private cryptoService: CryptoService) {
+  constructor(
+    private authService: AuthService,
+    private cryptoService: CryptoService) {
     super();
   }
 

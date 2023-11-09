@@ -15,7 +15,7 @@ import { CryptoService } from 'src/crypto/crypto.service';
     PassportModule,
     JwtModule.register({
       secret: jwtConstants.secret,
-      signOptions: { expiresIn: '10m' }
+      signOptions: { expiresIn: '30s' }
     })
   ],
   providers: [
