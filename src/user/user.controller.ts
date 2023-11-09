@@ -3,7 +3,7 @@ import { Controller, Get, Post, Put, Delete, Param, Body, UseGuards, UseIntercep
 import { UserService } from './user.service';
 import { User } from './user.entity';
 import { CryptoService } from 'src/crypto/crypto.service';
-import { JwtAuthGuard } from 'src/auth/jwt-auth.guard';
+import { JwtAuthGuard } from '../auth/jwt-auth.guard';
 
 @UseGuards(JwtAuthGuard)
 @Controller('users')
